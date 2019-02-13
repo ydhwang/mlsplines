@@ -10,7 +10,7 @@ make_K(z)
 \item{z}{mid-interval value vector. assumed the equi-distant}
 }
 \description{
-Generates kernel matrix of J by J, where J = length(z) for multilevel splines in \code{\link{mlsplines}}
+Generates kernel matrix of J by J, where J = length(z) for multilevel splines
 certainly not optimal but this step shouldn't take long regardless
 }
 \author{

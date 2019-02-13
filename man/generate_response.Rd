@@ -23,7 +23,7 @@ generate_response(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5,
 \item{N_m}{the maximum sample size for each interval; default = 200.}
 }
 \description{
-Generates simulated response for multilevel splines in \code{\link{mlsplines}}
+Generates simulated response for multilevel splines
 }
 \author{
 YD Hwang \email{yhwang@g.skku.edu} and ER Lee \email{erlee@skku.edu}

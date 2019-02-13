@@ -1,8 +1,9 @@
 #' functions for multilevel splines
 #'
-#' Generates simulated response for multilevel splines in \code{\link{mlsplines}}
+#' Generates simulated response for multilevel splines
 #'
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
+#' @importFrom stats coef glm lm rbinom rnorm vcov
 #' @param J  number of 'data' intervals
 #' @param mod  underlying model; either `lm` or `glm`
 #' @param x_sigma  design matrix sigma
@@ -58,7 +59,7 @@ granular <- function(x_k, y_k, mod) {
 
 #' Generates kerel matrix
 #'
-#' Generates kernel matrix of J by J, where J = length(z) for multilevel splines in \code{\link{mlsplines}}
+#' Generates kernel matrix of J by J, where J = length(z) for multilevel splines
 #' certainly not optimal but this step shouldn't take long regardless
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
 #' @param z mid-interval value vector. assumed the equi-distant
@@ -82,7 +83,7 @@ make_K <- function(z) {
 
 #' Main EM function
 #'
-#' Running EM for multilevel splines in \code{\link{mlsplines}}
+#' Running EM for multilevel splines
 #' certainly not optimal...
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
 #' @param beta_hat_vec data vector of length J
@@ -133,7 +134,7 @@ main_EM <- function(beta_hat_vec, V, K, lambda, maxit = 500) {
 
 #' Naive strawman
 #'
-#' Running naive splines in \code{\link{mlsplines}}
+#' Running naive splines
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
 #' @param beta_hat_vec data vector of length J
 #' @param K kernel matrix from `make_K`

@@ -18,7 +18,7 @@ main_EM(beta_hat_vec, V, K, lambda, maxit = 500)
 \item{maxit}{maximum iteration number}
 }
 \description{
-Running EM for multilevel splines in \code{\link{mlsplines}}
+Running EM for multilevel splines
 certainly not optimal...
 }
 \author{

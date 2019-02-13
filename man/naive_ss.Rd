@@ -14,7 +14,7 @@ naive_ss(beta_hat_vec, lambda, K)
 \item{K}{kernel matrix from `make_K`}
 }
 \description{
-Running naive splines in \code{\link{mlsplines}}
+Running naive splines
 }
 \author{
 YD Hwang \email{yhwang@g.skku.edu} and ER Lee \email{erlee@skku.edu}
