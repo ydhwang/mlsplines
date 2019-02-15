@@ -64,7 +64,7 @@ granular <- function(x_k, y_k, mod) {
 #' certainly not optimal but this step shouldn't take long regardless
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
 #' @param z Mid-interval value vector, assumed to be equi-distant
-#'
+#' @export
 
 make_K <- function(z) {
   J <- length(z)

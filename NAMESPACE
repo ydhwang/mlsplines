@@ -2,6 +2,7 @@
 
 export(generate_response)
 export(main_EM)
+export(make_K)
 export(naive_ss)
 importFrom(stats,coef)
 importFrom(stats,glm)
