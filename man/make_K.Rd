@@ -7,7 +7,7 @@
 make_K(z)
 }
 \arguments{
-\item{z}{mid-interval value vector. assumed the equi-distant}
+\item{z}{Mid-interval value vector, assumed to be equi-distant}
 }
 \description{
 Generates kernel matrix of J by J, where J = length(z) for multilevel splines
