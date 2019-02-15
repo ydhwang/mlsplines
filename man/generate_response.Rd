@@ -2,7 +2,7 @@
 % Please edit documentation in R/mlsplines.R
 \name{generate_response}
 \alias{generate_response}
-\title{functions for multilevel splines}
+\title{generate simulated response for multilevel splines}
 \usage{
 generate_response(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5,
   N_s, N_m = 200)

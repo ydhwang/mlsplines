@@ -1,4 +1,4 @@
-#' functions for multilevel splines
+#' generate simulated response for multilevel splines
 #'
 #' Generates simulated response for multilevel splines
 #'
