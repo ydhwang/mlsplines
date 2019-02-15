@@ -45,6 +45,17 @@ generate_response <- function(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5, N
   list(x_list = x_list, y_list = y_list, e_list = e_list, true_mu = mu, z = z)
 }
 
+#' Builds ``granular'' data
+#'
+#' obtains the regression slope and its variance
+#' certainly not optimal but this step shouldn't take long regardless
+#' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
+#' @param x_k design matrix
+#' @param y_k response vector
+#' @param mod underlying model; either `lm` or `glm`
+#' @export
+
+
 granular <- function(x_k, y_k, mod) {
   # summarizing the regression part
   if (mod == "glm")
