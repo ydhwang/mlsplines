@@ -11,6 +11,15 @@
 #' @param z_sigma  error variance around my surface; structural level.
 #' @param N_s the minimum sample size for each interval.
 #' @param N_m  the maximum sample size for each interval; default = 200.
+#' @return returns a list described above.
+#' @format list(x_list = x_list, y_list = y_list, e_list = e_list, true_mu = mu, z = z)
+#' \describe{
+#'   \item{x_list}{the length-J list of design matrices. The nrow of each element is between N_s and N_m}
+#'   \item{y_list}{the length-J list of response vectors. The length of each element is between N_s and N_m.}
+#'   \item{e_list}{the length-J list of error vectors. The length of each element is between N_s and N_m.}
+#'   \item{true_mu}{the true mu vector of length J}
+#'   \item{z}{the grid vector of length J}
+#' }
 #' @export
 
 generate_response <- function(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5, N_s, N_m = 200) {
