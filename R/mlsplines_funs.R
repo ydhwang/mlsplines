@@ -11,6 +11,7 @@
 #' @param z_sigma  error variance around my surface; structural level.
 #' @param N_s the minimum sample size for each interval.
 #' @param N_m  the maximum sample size for each interval; default = 200.
+#' @export
 
 generate_response <- function(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5, N_s, N_m = 200) {
 
@@ -91,7 +92,7 @@ make_K <- function(z) {
 #' @param K kernel matrix from `make_K`
 #' @param lambda tuning parameter
 #' @param maxit maximum iteration number
-#'
+#' @export
 
 
 main_EM <- function(beta_hat_vec, V, K, lambda, maxit = 500) {
@@ -139,7 +140,8 @@ main_EM <- function(beta_hat_vec, V, K, lambda, maxit = 500) {
 #' @param beta_hat_vec data vector of length J
 #' @param K kernel matrix from `make_K`
 #' @param lambda tuning parameter
-#'
+#' @export
+
 naive_ss <- function(beta_hat_vec, lambda, K) {
 
   J <- length(beta_hat_vec)
