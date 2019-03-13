@@ -99,6 +99,7 @@ make_K <- function(z) {
     W[l, l] <- (h[l] + h[l + 1])/3
   }
   K <- t(Del) %*% solve(W) %*% Del
+  K
 }
 
 
