@@ -81,7 +81,8 @@ granular <- function(x_k, y_k, mod) {
 #' Generates kerel matrix
 #'
 #' Generates kernel matrix of J by J, where J = length(z) for multilevel splines
-#' certainly not optimal but this step shouldn't take long regardless
+#' certainly not optimal but this step shouldn't take long regardless.
+#' Used the formulation from Reinsch (1967).
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
 #' @param z Mid-interval value vector, assumed to be equi-distant
 #' @export
