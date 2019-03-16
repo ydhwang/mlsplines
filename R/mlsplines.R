@@ -84,7 +84,7 @@ granular <- function(x_k, y_k, mod) {
 #' certainly not optimal but this step shouldn't take long regardless.
 #' Used the formulation from Reinsch (1967).
 #' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
-#' @param z Mid-interval value vector, assumed to be equi-distant
+#' @param z Mid-interval value vector, it is safe to assume this to be equi-distant, but in principle it doesn't have to be. it's not tested though.
 #' @export
 
 make_K <- function(z) {
