@@ -7,11 +7,12 @@
 make_K(z)
 }
 \arguments{
-\item{z}{Mid-interval value vector, assumed to be equi-distant}
+\item{z}{Mid-interval value vector, it is safe to assume this to be equi-distant, but in principle it doesn't have to be. it's not tested though.}
 }
 \description{
 Generates kernel matrix of J by J, where J = length(z) for multilevel splines
-certainly not optimal but this step shouldn't take long regardless
+certainly not optimal but this step shouldn't take long regardless.
+Used the formulation from Reinsch (1967).
 }
 \author{
 YD Hwang \email{yhwang@g.skku.edu} and ER Lee \email{erlee@skku.edu}
