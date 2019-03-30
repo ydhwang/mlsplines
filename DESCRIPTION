@@ -1,7 +1,7 @@
 Package: mlsplines
 Type: Package
 Title: Multilevel Splines
-Version: 0.1.0
+Version: 0.1.1
 Author: Youngdeok Hwang <yhwang@g.skku.edu> and Eunryung Lee <erlee@skku.edu>
 Maintainer: Youngdeok Hwang <yhwang@g.skku.edu>
 Description: Codes for multilevel splines paper.
