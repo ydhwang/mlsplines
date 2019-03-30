@@ -179,3 +179,59 @@ naive_ss <- function(beta_hat_vec, lambda, K) {
   out <- list(mu = f_hat, S_lambda = S_lambda, BIC = BIC, GCV = GCV)
   out
 }
+
+
+#' Generates simulated response for multilevel splines -- test function #2
+#'
+#' @author YD Hwang \email{yhwang@@g.skku.edu} and ER Lee \email{erlee@@skku.edu}
+#' @importFrom stats coef glm lm rbinom rnorm vcov
+#' @param J  number of 'data' intervals
+#' @param mod  underlying model; either `lm` or `glm`
+#' @param x_sigma  design matrix sigma
+#' @param e_sigma  error variance - around the mean function; data level.
+#' @param z_sigma  error variance around my surface; structural level.
+#' @param N_s the minimum sample size for each interval.
+#' @param N_m  the maximum sample size for each interval; default = 200.
+#' @return returns a list described above.
+#' @format list(x_list = x_list, y_list = y_list, e_list = e_list, true_mu = mu, z = z)
+#' \describe{
+#' This function is supposed to be combined with the other generation function.. but later.
+#'   \item{x_list}{the length-J list of design matrices. The nrow of each element is between N_s and N_m}
+#'   \item{y_list}{the length-J list of response vectors. The length of each element is between N_s and N_m.}
+#'   \item{e_list}{the length-J list of error vectors. The length of each element is between N_s and N_m.}
+#'   \item{true_mu}{the true mu vector of length J}
+#'   \item{z}{the grid vector of length J}
+#' }
+#' @export
+
+generate_response_smooth <- function(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5, N_s, N_m = 200) {
+
+  # currently the data interval (z interval) is set to be between -3 and 3.
+
+  n <- sample(N_s:N_m, J, replace = TRUE)
+
+  # smooth surface: z is the grid sequence and mu is the generated smooth function.
+  z <- seq(from = -3, to = 3, length.out = J)
+  mu <- sin(12*(z + 0.2)) / (z + 0.2)  # "true" surface.
+
+  beta_1 <- mu + rnorm(J, 0, z_sigma)  # slope
+  beta_0 <- 0  # intercept
+
+  x_list <- lapply(n, rnorm, mean = 0, sd = x_sigma)
+  e_list <- lapply(n, rnorm, mean = 0, sd = e_sigma)
+
+  # outcome generation function; gives 'y' list given e, beta_0, beta_1, and
+  # x (design matrix)
+  # for glm: logit link binary p(y = 1) = 1/(1 + exp(-beta_0 - beta_1 * x - e)
+  # for lm: ordinary linear model structure y = xb + e
+  if (mod == "glm") {
+    y_list <- mapply(function(x, e, b, beta_0 = 0)
+      rbinom(length(x), 1, 1/(1 + exp(-beta_0 - b * x - e))),
+      x = x_list, e = e_list, b = beta_1)
+  }
+  if (mod == "lm") {
+    y_list <- mapply(function(x, e, b, beta_0 = 0)
+      beta_0 + b * x + e, x = x_list, e = e_list, b = beta_1)
+  }
+  list(x_list = x_list, y_list = y_list, e_list = e_list, true_mu = mu, z = z)
+}
