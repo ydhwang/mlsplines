@@ -206,12 +206,12 @@ naive_ss <- function(beta_hat_vec, lambda, K) {
 
 generate_response_smooth <- function(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5, N_s, N_m = 200) {
 
-  # currently the data interval (z interval) is set to be between -3 and 3.
+  # currently the data interval (z interval) is set to be between 0 and 1
 
   n <- sample(N_s:N_m, J, replace = TRUE)
 
   # smooth surface: z is the grid sequence and mu is the generated smooth function.
-  z <- seq(from = -3, to = 3, length.out = J)
+  z <- seq(from = 0, to = 1, length.out = J)
   mu <- sin(12*(z + 0.2)) / (z + 0.2)  # "true" surface.
 
   beta_1 <- mu + rnorm(J, 0, z_sigma)  # slope
