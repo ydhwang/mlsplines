@@ -30,7 +30,7 @@ generate_response <- function(J, mod, e_sigma = 1, x_sigma = 1, z_sigma = 0.5, N
 
   # smooth surface: z is the grid sequence and mu is the generated smooth function.
   z <- seq(from = -3, to = 3, length.out = J)
-  mu <- 10 + z^2 - 10 * cos(2 * pi * z)  # "true" surface.
+  mu <- z^2 - 10 * cos(2 * pi * z)  # "true" surface.
 
   beta_1 <- mu + rnorm(J, 0, z_sigma)  # slope
   beta_0 <- 0  # intercept
